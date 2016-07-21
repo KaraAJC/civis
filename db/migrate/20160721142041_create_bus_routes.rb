@@ -6,3 +6,8 @@ class CreateBusRoutes < ActiveRecord::Migration
     end
   end
 end
+
+
+
+# route_id
+# route_name

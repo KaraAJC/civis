@@ -6,3 +6,12 @@ class CreateStops < ActiveRecord::Migration
     end
   end
 end
+
+# stop_id - ID
+# on_street - Text
+# cross_street  - Text
+# boardings - float
+# alightings  - float
+# location - point(x,y)
+
+# routes  - Array of Route Objects
