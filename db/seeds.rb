@@ -8,14 +8,15 @@
 require 'CSV'
 
 test = CSV.foreach('/Users/karaajc/Projects/civis/db/test.csv', :headers => true) do |row|
-  stop = Stop.create(on_street: row['on_street'],
+  stop = Stop.create!(on_street: row['on_street'],
                   cross_street: row['cross_street'],
                      boardings: row['boardings'],
                     alightings: row['alightings'],
                       location: row['location'])
 
     row['routes'].to_s.split(',').each do |r|
-      stop.bus_routes.find_or_create_by(route_name: r)
+      route = BusRoute.find_or_create_by!(route_name: r)
+      RouteStop.create!( stop_id: stop.id, bus_route_id: route.id)
     end
   end
 
