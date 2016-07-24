@@ -6,7 +6,6 @@ class CreateStops < ActiveRecord::Migration
       t.float :boardings
       t.float :alightings
       t.point :location
-      t.references :route_stops
       t.timestamps null: false
     end
   end
