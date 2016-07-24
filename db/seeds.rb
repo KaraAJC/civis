@@ -7,15 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'CSV'
 
-CSV.foreach('', :headers => true) do |row|
-  Stop.create(on_street: row[:on_street],
-              cross_street: row[:cross_street],
-              boardings: row[:boardings],
-              alightings: row[:alightings],
-              location: row[:location]
-              row[:routes].each do |r|
-                Route_stop.create(bus_route:find_or_create_by(route_name: r), Stop)
-              end
-    )
-end
+test = CSV.foreach('/Users/karaajc/Projects/civis/db/test.csv', :headers => true) do |row|
+  stop = Stop.create(on_street: row['on_street'],
+                  cross_street: row['cross_street'],
+                     boardings: row['boardings'],
+                    alightings: row['alightings'],
+                      location: row['location'])
+
+    row['routes'].to_s.split(',').each do |r|
+      stop.bus_routes.find_or_create_by(route_name: r)
+    end
+  end
 
