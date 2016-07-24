@@ -1,7 +1,7 @@
 class CreateBusRoutes < ActiveRecord::Migration
   def change
     create_table :bus_routes do |t|
-      t.string :route_name
+      t.string :route_name, unique: true
       t.timestamps null: false
     end
   end
