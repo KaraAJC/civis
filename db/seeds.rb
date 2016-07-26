@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'CSV'
 
-test = CSV.foreach('/Users/karaajc/Projects/civis/db/test.csv', :headers => true) do |row|
+test = CSV.foreach(Rails.root.join('lib','assets','CTA_-_Ridership_-_Avg._Weekday_Bus_Stop_Boardings_in_October_2012.csv'), :headers => true) do |row|
   stop = Stop.create!(on_street: row['on_street'],
                   cross_street: row['cross_street'],
                      boardings: row['boardings'],
