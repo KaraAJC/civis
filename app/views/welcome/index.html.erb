@@ -1,4 +1,31 @@
 <h1>October CTA Info</h1>
+
+
+<h3>Aggregates:</h3>
+<table>
+  <tr>
+    <th>Total Stops</th>
+    <th>Total Routes</th>
+    <th>Total Boardings</th>
+    <th>Total Alightings</th>
+    <th>Most flighty place (most boardings)</th>
+    <th>Most happenin' place (most alightings)</th>
+    <th>Stop with Most Routes</th>
+    <th>Longest Route (by stops)</th>
+  </tr>
+
+  <tr>
+  <td><%= @stops.count%></td>
+  <td><%= @routes.count%></td>
+  <td><%= @stops.sum('boardings')%></td>
+  <td><%= @stops.sum('alightings')%></td>
+  <td><%= @busiest_boarding%></td>
+  <td><%= @busiest_alighting%></td>
+  </tr>
+</table>
+
+<br>
+
 <h2>Bus Stops</h2>
 <table class="striped centered">
   <tr>
