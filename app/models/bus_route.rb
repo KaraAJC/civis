@@ -4,4 +4,7 @@ class BusRoute < ActiveRecord::Base
 
   validates :route_name, uniqueness: true
 
+  def self.plot_route(bus)
+     self.bus.stops.pluck(:location)
+  end
 end

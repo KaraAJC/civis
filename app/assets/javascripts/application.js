@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require materialize-sprockets
 //= require turbolinks
+//= require underscore-min
+//= require gmaps/google
 //= require_tree .
