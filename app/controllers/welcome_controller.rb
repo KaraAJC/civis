@@ -2,8 +2,8 @@ class WelcomeController < ApplicationController
   def index
     @routes = BusRoute.all
     @stops = Stop.all
-    @busiest_boarding = Stop.most_boardings
-    @busiest_alighting = Stop.most_alightings
+    @busiest_boarding = Stop.most_boardings.say_stop
+    @busiest_alighting = Stop.most_alightings.say_stop
 
     @hash = Gmaps4rails.build_markers(@stops) do |stop, marker|
         marker.lat stop.location[0]

@@ -3,11 +3,11 @@ class Stop < ActiveRecord::Base
   has_many :bus_routes, through: :route_stops
 
   def self.most_alightings
-    self.all.find_by(alightings: self.maximum('alightings')).say_stop
+    self.all.find_by(alightings: self.maximum('alightings'))
   end
 
   def self.most_boardings
-    self.all.find_by(boardings: self.maximum('boardings')).say_stop
+    self.all.find_by(boardings: self.maximum('boardings'))
   end
 
   def say_stop
